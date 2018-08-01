@@ -4,9 +4,9 @@ var http = require('http').Server(app); // Set app as the callback function of t
 
 app.use(express.static(__dirname));
 
-// Main page is login page.
+// Main page is room page.
 app.get('/', function (request, response) {
-    response.sendFile('login/login.html',{root:__dirname});
+    response.sendFile('room/room.html',{root:__dirname});
 });
 
 http.listen(4000, function () {

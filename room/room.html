@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+    <title>Socket.IO chat</title>
+    <link rel="stylesheet" href="room/room.css">
+</head>
+
+<body>
+    <div class="chat-box">
+        <!--聊天框头部-->
+        <div class="chat-header">
+            <div class="button-box">
+                <input type="button" class="log-out" value="LOGOUT">
+            </div>
+        </div>
+        <!--聊天框主体-->
+        <div class="chat-body">
+            <!--聊天框左侧-->
+            <div class="chat-body-left">
+                <!--聊天框左侧聊天内容-->
+                <div class="chat-content"></div>
+                <!--聊天框左侧聊天输入框-->
+                <div class="chat-edit">
+                    <input type="text" id="input-box" placeholder="Type here." maxlength="15">
+                    <input type="button" id="send-button" value="SEND">
+                </div>
+            </div>
+            <!--聊天框右侧-->
+            <div class="chat-body-right">
+                <!--聊天框右侧统计人数-->
+                <div class="online-count">Online:0</div>
+                <!--聊天框右侧用户名-->
+                <div class="user-name">user-name</div>
+                <!--聊天框右侧头像-->
+                <img class="user-img" />
+            </div>
+        </div>
+    </div>
+</body>
+    <script src="node_modules/socket.io-client/dist/socket.io.js"></script>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="room/room.js"></script>
+</html>
