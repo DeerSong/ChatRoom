@@ -6,7 +6,7 @@ var inputBox = document.getElementById('input-box');
 
 var button = document.getElementById('send-button');
 
-// var userName = document.getElementsByClassName('user-name')[0];// 获取用户名栏
+var userName = document.getElementById('user-name') || 'Default Name';
 
 // var onlineCount = document.getElementsByClassName('online-count')[0];// 获取在线人数栏
 
@@ -31,17 +31,35 @@ document.onkeydown = function (event) {
 // socket.io
 var socket = io();
 
-// 发送本机的消息
+// Receive message from others.
+socket.on('message', function(data) {
+    if (data.name !== userName.textContent) {
+        createBubbleFromOther(data);
+    }
+});
+
+// Other user connected.
+socket.on('connected', function (onlinecount) {
+    console.log(onlinecount);
+    onlineCount.innerHTML = 'Online:' + onlinecount;
+});
+
+// Other user disconnected.
+socket.on('disconnected', function (onlinecount) {
+    console.log(onlinecount);
+    onlineCount.innerHTML = 'Online:' + onlinecount;
+});
+
 function sendMessage() {
     if (inputBox.value != '') {
-        var myInfo= {
+        var data = {
             // name: userName.textContent,
-            chatContent: inputBox.value,
+            message: inputBox.value,
             // img: userImg.src
         };
-        socket.emit('message', myInfo);
+        socket.emit('message', data);
         console.log(inputBox.value);
-        // createMyMessage();
+        // createBubbleOfMyself();
         inputBox.value = '';
     }
 };
