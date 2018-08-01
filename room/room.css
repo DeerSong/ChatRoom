@@ -27,7 +27,7 @@ body {
 
 /*最外层*/
 
-.chat-box {
+#chat-box {
     width: 50%;
     max-width: 720px;
     min-width: 400px;
@@ -43,17 +43,17 @@ body {
 
 /*头部*/
 
-.chat-header {
+#chat-header {
     margin: 5px;
     box-shadow: 1px 1px 15px #7B8C99;
 }
 
-.button-box {
+#button-box {
     display: flex;
     justify-content: flex-end;
 }
 
-.log-out {
+#log-out {
     height: 100%;
     font-size: 14px;
     font-weight: bold;
@@ -69,7 +69,7 @@ body {
 
 /*主体*/
 
-.chat-body {
+#chat-body {
     height: 90%;
     display: flex;
     flex-direction: row;
@@ -82,7 +82,7 @@ body {
 
 /*主体左侧*/
 
-.chat-body-left {
+#chat-body-left {
     height: 100%;
     width: 70%;
     display: flex;
@@ -94,7 +94,7 @@ body {
 
 /*左侧内容*/
 
-.chat-content {
+#chat-content {
     margin-bottom: 5px;
     height: 100%;
     box-shadow: 1px 1px 15px #7B8C99;
@@ -104,21 +104,21 @@ body {
 
 /*聊天气泡*/
 
-.my-message-box {
+#my-message-box {
     display: flex;
     justify-content: flex-end;
     align-content: center;
     margin: 5px;
 }
 
-.other-message-box {
+#other-message-box {
     display: flex;
     justify-content: flex-start;
     align-content: center;
     margin: 5px;
 }
 
-.message-content {
+#message-content {
     display: flex;
     justify-content: center;
     align-content: center;
@@ -128,7 +128,7 @@ body {
     color: #fff;
 }
 
-.other-message-content {
+#other-message-content {
     display: flex;
     justify-content: center;
     align-content: center;
@@ -138,15 +138,15 @@ body {
     color: #fff;
 }
 
-.message-content span {
+#message-content span {
     padding: 20px 0px;
 }
 
-.other-message-content span {
+#other-message-content span {
     padding: 20px 0px;
 }
 
-.message-arrow {
+#message-arrow {
     width: 0px;
     height: 0px;
     border-width: 8px;
@@ -155,7 +155,7 @@ body {
     align-self: center;
 }
 
-.other-message-arrow {
+#other-message-arrow {
     width: 0px;
     height: 0px;
     border-width: 8px;
@@ -164,31 +164,31 @@ body {
     align-self: center;
 }
 
-.user-information {
+#user-information {
     display: flex;
     flex-direction: column;
     align-content: flex-end;
 }
 
-.other-user-information {
+#other-user-information {
     display: flex;
     flex-direction: column;
     align-content: flex-end;
 }
 
-.user-chat-img {
+#user-chat-img {
     width: 50px;
     height: 50px;
 }
 
-.user-chat-name {
+#user-chat-name {
     color: #333333;
     font-size: 16px;
     text-align: center;
 }
 
 /*聊天输入框*/
-.chat-edit {
+#chat-edit {
     margin-top: 5px;
     display: flex;
     justify-content: space-between;
@@ -222,7 +222,7 @@ body {
 
 /*主体右侧*/
 
-.chat-body-right {
+#chat-body-right {
     height: 100%;
     width: 30%;
     display: flex;
@@ -236,20 +236,20 @@ body {
 
 /*右侧内容*/
 
-.user-name {
+#user-name {
     margin: 15px;
     font-size: 18px;
     font-weight: bold;
     color: #79C2EA;
 }
 
-.user-img {
+#user-img {
     width: 100px;
     height: 100px;
     margin: 5px;
 }
 
-.online-count {
+#online-count {
     font-size: 18px;
     font-weight: bold;
     color: #79C2EA;
@@ -257,7 +257,7 @@ body {
 
 /*兼容小屏幕*/
 @media screen and (max-width: 420px) {
-    .chat-box {
+    #chat-box {
         width: 50%;
         max-width: 720px;
         min-width: 300px;
@@ -265,7 +265,7 @@ body {
         min-height: 530px;
         max-height: 530px;
     }
-    .chat-body-left {
+    #chat-body-left {
         height: 100%;
         width: 100%;
         display: flex;
@@ -273,7 +273,7 @@ body {
         justify-content: space-around;
         margin: 5px;
     }
-    .chat-body-right {
+    #chat-body-right {
         display: none;
     }
 }
