@@ -1,16 +1,16 @@
 // var url = decodeURI(location.href).split('?')[1].split('&');// 获取url里面的内容
 
-// var chatContent = document.getElementById('chat-content');// 获取聊天内容框
+var chatContent = document.getElementById('chat-content');// 获取聊天内容框
 
 var inputBox = document.getElementById('input-box');
 
 var button = document.getElementById('send-button');
 
-var userName = document.getElementById('user-name') || 'Default Name';
-
 var onlineCount = document.getElementById('online-count');
 
-// userName.innerHTML = url[1].split('=')[1]; // 把登录页面的名称放在右侧
+var userName = document.getElementById('user-name');
+
+userName.innerHTML = onlineCount.innerHTML || url[1].split('=')[1]; // 把登录页面的名称放在右侧
 // var userImg = document.getElementById('user-img');
 
 // userImg.src = 'img/' + url.split('=')[1];// 把登录页面的头像放在右侧
@@ -69,7 +69,7 @@ function createBubbleOfMyself() {
     var messageContent = document.createElement('div');
     messageContent.className = 'message-content';
     var text = document.createElement('span');
-    text.innerHTML = editBox.value;
+    text.innerHTML = inputBox.value;
     messageContent.appendChild(text);
     myMessageBox.appendChild(messageContent);
 
@@ -79,13 +79,13 @@ function createBubbleOfMyself() {
 
     var userInformation = document.createElement('div');
     userInformation.className = 'user-information';
-    var userChatImg = document.createElement('img');
-    userChatImg.className = 'user-chat-img';
-    userChatImg.src = userImg.src;
+    // var userChatImg = document.createElement('img');
+    // userChatImg.className = 'user-chat-img';
+    // userChatImg.src = userImg.src;
     var userChatName = document.createElement('div');
     userChatName.className = 'user-chat-name';
     userChatName.innerHTML = userName.textContent;
-    userInformation.appendChild(userChatImg);
+    // userInformation.appendChild(userChatImg);
     userInformation.appendChild(userChatName);
     myMessageBox.appendChild(userInformation);
 
