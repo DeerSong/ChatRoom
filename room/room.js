@@ -1,20 +1,21 @@
 // var url = decodeURI(location.href).split('?')[1].split('&');// 获取url里面的内容
 
-var chatContent = document.getElementById('chat-content'); //
+var chatContent = document.getElementById('chat-content');
 
-var inputBox = document.getElementById('input-box'); //
+var inputBox = document.getElementById('input-box');
 
 var button = document.getElementById('send-button');
 
 var onlineCount = document.getElementById('online-count');
 
 var userName = document.getElementById('user-name');
+var time = (Date.parse(new Date()) / 1000) % 100;
+userName.innerHTML = time || url[1].split('=')[1]; // get userName from url
 
-var time = Date.parse(new Date());
-userName.innerHTML = ((time/1000) % 100) || url[1].split('=')[1]; // 把登录页面的名称放在右侧
-// var userImg = document.getElementById('user-img');
+var userImg = document.getElementById('user-img');
+userImg.src = 'src/' + ((time % 5)+1) + '.png'; // get userImg from url
+// userImg.src = 'src/' + url.split('=')[1]; // get userImg from url
 
-// userImg.src = 'img/' + url.split('=')[1];// 把登录页面的头像放在右侧
 // var logout= document.getElementById('log-out');
 
 // Bind event
@@ -54,7 +55,7 @@ function sendMessage() {
         var data = {
             name: userName.textContent,
             message: inputBox.value,
-            // img: userImg.src
+            img: userImg.src
         };
         socket.emit('message', data);
         console.log(inputBox.value);
@@ -80,13 +81,13 @@ function createBubbleOfMyself() {
 
     var userInformation = document.createElement('div');
     userInformation.id = 'user-information';
-    // var userChatImg = document.createElement('img');
-    // userChatImg.id = 'user-chat-img';
-    // userChatImg.src = userImg.src;
+    var userChatImg = document.createElement('img');
+    userChatImg.id = 'user-chat-img';
+    userChatImg.src = userImg.src;
     var userChatName = document.createElement('div');
     userChatName.id = 'user-chat-name';
     userChatName.innerHTML = userName.textContent;
-    // userInformation.appendChild(userChatImg);
+    userInformation.appendChild(userChatImg);
     userInformation.appendChild(userChatName);
     myMessageBox.appendChild(userInformation);
 
