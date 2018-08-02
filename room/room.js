@@ -35,10 +35,7 @@ var socket = io();
 
 // Receive message from others.
 socket.on('message', function(data) {
-    // console.log('!!!!!!!!!!!!');
     if (data.name !== userName.textContent) {
-        // console.log('!!!!!!!!!!!!');
-        console.log("Receive" + data.message);
         createBubbleFromOther(data);
     }
 });
@@ -61,7 +58,6 @@ function sendMessage() {
             img: userImg.src
         };
         socket.emit('message', data);
-        console.log(inputBox.value);
         createBubbleOfMyself();
         inputBox.value = '';
     }
