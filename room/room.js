@@ -16,11 +16,11 @@ var userImg = document.getElementById('user-img');
 userImg.src = 'src/' + ((time % 5)+1) + '.png'; // get userImg from url
 // userImg.src = 'src/' + url.split('=')[1]; // get userImg from url
 
-// var logout= document.getElementById('log-out');
+var logout= document.getElementById('log-out');
 
 // Bind event
 button.addEventListener('click', sendMessage);
-// logout.addEventListener('click', closePage);
+logout.addEventListener('click', closePage);
 
 // Press 'Enter' to send message.
 document.onkeydown = function (event) {
@@ -63,6 +63,10 @@ function sendMessage() {
         inputBox.value = '';
     }
 };
+
+function closePage() {
+    window.location.href = "about:blank";
+}
 
 function createBubbleOfMyself() {
     var myMessageBox = document.createElement('div');
