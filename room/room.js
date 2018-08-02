@@ -35,7 +35,10 @@ var socket = io();
 
 // Receive message from others.
 socket.on('message', function(data) {
+    // console.log('!!!!!!!!!!!!');
     if (data.name !== userName.textContent) {
+        // console.log('!!!!!!!!!!!!');
+        console.log("Receive" + data.message);
         createBubbleFromOther(data);
     }
 });
@@ -123,7 +126,7 @@ function createBubbleFromOther(information) {
     var otherMessageContent = document.createElement('div');
     otherMessageContent.id = 'other-message-content';
     var text = document.createElement('span');
-    text.innerHTML = information.chatContent;
+    text.innerHTML = information.message;
     otherMessageContent.appendChild(text);
     otherMessageBox.appendChild(otherMessageContent);
 
