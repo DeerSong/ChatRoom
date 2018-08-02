@@ -1,8 +1,8 @@
 // var url = decodeURI(location.href).split('?')[1].split('&');// 获取url里面的内容
 
-var chatContent = document.getElementById('chat-content');// 获取聊天内容框
+var chatContent = document.getElementById('chat-content'); //
 
-var inputBox = document.getElementById('input-box');
+var inputBox = document.getElementById('input-box'); //
 
 var button = document.getElementById('send-button');
 
@@ -10,7 +10,8 @@ var onlineCount = document.getElementById('online-count');
 
 var userName = document.getElementById('user-name');
 
-userName.innerHTML = onlineCount.innerHTML || url[1].split('=')[1]; // 把登录页面的名称放在右侧
+var time = Date.parse(new Date());
+userName.innerHTML = ((time/1000) % 100) || url[1].split('=')[1]; // 把登录页面的名称放在右侧
 // var userImg = document.getElementById('user-img');
 
 // userImg.src = 'img/' + url.split('=')[1];// 把登录页面的头像放在右侧
@@ -64,26 +65,26 @@ function sendMessage() {
 
 function createBubbleOfMyself() {
     var myMessageBox = document.createElement('div');
-    myMessageBox.className = 'my-message-box';
+    myMessageBox.id = 'my-message-box';
 
     var messageContent = document.createElement('div');
-    messageContent.className = 'message-content';
+    messageContent.id = 'message-content';
     var text = document.createElement('span');
     text.innerHTML = inputBox.value;
     messageContent.appendChild(text);
     myMessageBox.appendChild(messageContent);
 
     var arrow = document.createElement('div')
-    arrow.className = 'message-arrow';
+    arrow.id = 'message-arrow';
     myMessageBox.appendChild(arrow);
 
     var userInformation = document.createElement('div');
-    userInformation.className = 'user-information';
+    userInformation.id = 'user-information';
     // var userChatImg = document.createElement('img');
-    // userChatImg.className = 'user-chat-img';
+    // userChatImg.id = 'user-chat-img';
     // userChatImg.src = userImg.src;
     var userChatName = document.createElement('div');
-    userChatName.className = 'user-chat-name';
+    userChatName.id = 'user-chat-name';
     userChatName.innerHTML = userName.textContent;
     // userInformation.appendChild(userChatImg);
     userInformation.appendChild(userChatName);
@@ -96,26 +97,26 @@ function createBubbleOfMyself() {
 
 function createBubbleFromOther(information) {
     var otherMessageBox = document.createElement('div');
-    otherMessageBox.className = 'other-message-box';
+    otherMessageBox.id = 'other-message-box';
 
     var otherUserInformation = document.createElement('div');
-    otherUserInformation.className = 'other-user-information';
+    otherUserInformation.id = 'other-user-information';
     var userChatImg = document.createElement('img');
-    userChatImg.className = 'user-chat-img';
+    userChatImg.id = 'user-chat-img';
     userChatImg.src = information.img;
     var userChatName = document.createElement('span');
-    userChatName.className = 'user-chat-name';
+    userChatName.id = 'user-chat-name';
     userChatName.innerHTML = information.name;
     otherUserInformation.appendChild(userChatImg);
     otherUserInformation.appendChild(userChatName);
     otherMessageBox.appendChild(otherUserInformation);
 
     var otherMessageArrow = document.createElement('div');
-    otherMessageArrow.className = 'other-message-arrow';
+    otherMessageArrow.id = 'other-message-arrow';
     otherMessageBox.appendChild(otherMessageArrow);
 
     var otherMessageContent = document.createElement('div');
-    otherMessageContent.className = 'other-message-content';
+    otherMessageContent.id = 'other-message-content';
     var text = document.createElement('span');
     text.innerHTML = information.chatContent;
     otherMessageContent.appendChild(text);
