@@ -8,11 +8,11 @@ body.my-login-page {
 }
 
 .my-login-page .brand {
-	width: 90px;
-	height: 90px;
+	width: 100px;
+	height: 100px;
 	overflow: hidden;
 	margin: 0 auto;
-	margin: 40px auto;
+	margin: 25px auto;
 }
 
 .my-login-page .brand img {
