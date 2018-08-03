@@ -38,6 +38,10 @@ body.my-login-page {
 	margin-bottom: 30px;
 }
 
+.input-title,.card-title,.btn.lg-btn,.btn.rg-btn {
+	font-weight: 500;
+}
+
 .my-login-page .form-control {
 	border-width: 2.3px;
 }
@@ -50,16 +54,26 @@ body.my-login-page {
 	width: 100%;
 }
 
-.btn {
+.btn.lg-btn, .btn.rg-btn {
 	border-radius: 50px;
 	box-sizing: border-box;
+	font-weight: 500;
+}
+
+.btn.rg-btn {
+	background: none;
+	border: 1px solid #007bff;
+	color: #007bff;
+	display: inline-block;
 }
 
 .register {
     margin-right: 10%;
+	width: 100%;
 }
 
 .login {
+	width: 100%;
  }
 
 .my-login-page .btn.btn-block {
