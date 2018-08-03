@@ -13,8 +13,8 @@ var time = (Date.parse(new Date()) / 1000) % 100;
 userName.innerHTML = time || url[1].split('=')[1]; // get userName from url
 
 var userImg = document.getElementById('user-img');
-userImg.src = 'src/' + ((time % 5)+1) + '.png'; // get userImg from url
-// userImg.src = 'src/' + url.split('=')[1]; // get userImg from url
+userImg.src = '../src/' + ((time % 5)+1) + '.png'; // get userImg from url
+// userImg.src = '../src/' + url.split('=')[1]; // get userImg from url
 
 var logout= document.getElementById('log-out');
 

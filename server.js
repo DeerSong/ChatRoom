@@ -9,6 +9,7 @@ app.get('/', function (request, response) {
     response.sendFile('login/login.html',{root:__dirname});
 });
 app.get('/room', function (request, response) {
+    console.log(__dirname);
     response.sendFile('room/room.html',{root:__dirname});
 });
 
