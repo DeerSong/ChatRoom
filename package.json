@@ -6,13 +6,14 @@
   "scripts": {
     "start": "node --use_strict server.js"
   },
-  "author": "",
+  "author": "Lusong Zhang",
   "license": "ISC",
   "dependencies": {
+    "bootstrap": "^4.1.3",
     "express": "^4.16.3",
     "jquery": "^3.3.1",
-    "socket.io": "^2.1.1",
-    "bootstrap": "^4.1.3",
-    "popper.js": "^1.14.3"
+    "mysql": "^2.16.0",
+    "popper.js": "^1.14.3",
+    "socket.io": "^2.1.1"
   }
 }

@@ -13,6 +13,21 @@ app.get('/room', function (request, response) {
     response.sendFile('room/room.html',{root:__dirname});
 });
 
+app.post('/', function(req, res, next) {
+    // var queryString = "select * from user where username='" + req.body.username + "'";
+    console.log(req.body);
+    // console.log(req.body.password);
+    // db.query(queryString, function(err, rows){
+    //     if (err) {
+    //         res.send(err);
+    //     }else {
+    //         if (rows.length != 0) {
+    //             res.send("用户名已存在，注册失败");
+    //         }
+    //     }
+    // })
+});
+
 http.listen(4000, function () {
     console.log('Server is running.');
 });
