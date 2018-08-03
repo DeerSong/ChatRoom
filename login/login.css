@@ -46,6 +46,22 @@ body.my-login-page {
 	width: 100%;
 }
 
+.btn-group{
+	width: 100%;
+}
+
+.btn {
+	border-radius: 50px;
+	box-sizing: border-box;
+}
+
+.register {
+    margin-right: 10%;
+}
+
+.login {
+ }
+
 .my-login-page .btn.btn-block {
 	padding: 12px 10px;
 }
