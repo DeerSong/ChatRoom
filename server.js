@@ -43,6 +43,7 @@ app.get('/', function (request, response) {
     response.sendFile('login/login.html',{root:__dirname});
 });
 app.get('/room', restrict, function (request, response) {
+    console.log("success");
     response.sendFile('room/room.html',{root:__dirname});
 });
 
@@ -62,10 +63,10 @@ app.post('/check', function(req, res) {
     }
     else if (user == pass) {
         req.session.regenerate(function(){
-            req.session.user = user;
+            req.session.user = name;
             req.session.success = 'Authenticated successfully!';
+            res.send("2");
         });
-        res.send("2");
     }
     else {
         req.session.error = 'Authentication failed.';
