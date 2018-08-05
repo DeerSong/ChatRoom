@@ -1,31 +1,41 @@
 var express = require('express');
 var app = express();
 var http = require('http').Server(app); // Set app as the callback function of the server.
+var bodyParser = require('body-parser');
 
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(express.static(__dirname));
+
+
 
 // Main page is login page.
 app.get('/', function (request, response) {
     response.sendFile('login/login.html',{root:__dirname});
 });
-app.get('/room', function (request, response) {
-    console.log(__dirname);
-    response.sendFile('room/room.html',{root:__dirname});
-});
+// app.get('/room', function (request, response) {
+//     console.log(__dirname);
+//     response.render('room/room.html',{root:__dirname});
+// });
 
-app.post('/', function(req, res, next) {
+app.post('/check', function(req, res) {
     // var queryString = "select * from user where username='" + req.body.username + "'";
     console.log(req.body);
-    // console.log(req.body.password);
-    // db.query(queryString, function(err, rows){
-    //     if (err) {
-    //         res.send(err);
-    //     }else {
-    //         if (rows.length != 0) {
-    //             res.send("用户名已存在，注册失败");
-    //         }
-    //     }
-    // })
+    res.sendFile('room/room.html',{root:__dirname});
+    if (req.body.check == "register") {
+        if (1) {
+            res.send("1");
+        }
+        else {
+            res.send("-1");
+        }
+    }
+    else if (1) {
+        res.send("2");
+    }
+    else {
+        res.send("-2");
+    }
 });
 
 http.listen(4000, function () {
