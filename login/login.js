@@ -50,7 +50,7 @@ $(function() {
             } else if (result == "-1"){
                 alert("Username has been used!");
             } else if (result == "2"){
-                window.location.href += '/room';
+                window.location.href += '/room?username='+encodeURI(document.getElementById('email').value);
             } else if (result == "-2") {
             	alert("Check your username and password!")
 			}

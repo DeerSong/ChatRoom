@@ -30,7 +30,9 @@ var users = {
 };
 
 function restrict(req, res, next) {
-    if (req.session.user) {
+    var url = decodeURI(req.url).split('?')[1].split('&');
+    var username = url[0].split('=')[1];
+    if (req.session.user == username) { // check the username
         next();
     } else {
         req.session.error = 'Access denied!';
@@ -42,9 +44,8 @@ function restrict(req, res, next) {
 app.get('/', function (request, response) {
     response.sendFile('login/login.html',{root:__dirname});
 });
-app.get('/room', restrict, function (request, response) {
-    console.log("success");
-    response.sendFile('room/room.html',{root:__dirname});
+app.get('/room', restrict, function (req, res) {
+    res.sendFile('room/room.html',{root:__dirname});
 });
 
 app.post('/check', function(req, res) {
