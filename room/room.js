@@ -1,4 +1,4 @@
-// var url = decodeURI(location.href).split('?')[1].split('&');// 获取url里面的内容
+var url = decodeURI(location.href).split('?')[1].split('&');// 获取url里面的内容
 
 var chatContent = document.getElementById('chat-content');
 
@@ -10,7 +10,7 @@ var onlineCount = document.getElementById('online-count');
 
 var userName = document.getElementById('user-name');
 var time = (Date.parse(new Date()) / 1000) % 100;
-userName.innerHTML = time || url[1].split('=')[1]; // get userName from url
+userName.innerHTML = url[0].split('=')[1] || time; // get userName from url
 
 var userImg = document.getElementById('user-img');
 userImg.src = '../src/' + ((time % 5)+1) + '.png'; // get userImg from url
