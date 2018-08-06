@@ -23,11 +23,18 @@ app.use(function(req, res, next){
     next();
 });
 
-// dummy database
+// Mysql database
 
-var users = {
-    aa: 'a'
-};
+var mysql      = require('mysql');
+var database = mysql.createConnection({
+    host     : 'localhost',
+    user     : 'root',
+    password : '123456',
+    database : 'database',
+    port     : '3306'
+});
+
+database.connect();
 
 function restrict(req, res, next) {
     var url = decodeURI(req.url).split('?')[1].split('&');
@@ -51,28 +58,45 @@ app.get('/room', restrict, function (req, res) {
 app.post('/check', function(req, res) {
     var name = req.body.username;
     var pass = req.body.password;
-    var user = users[name];
+    var user = false;  // Username used or not.
+    var password = undefined;// password from database
 
-    if (req.body.check == "register") {
-        if (!user) { // not used, register successfully
-            users[name] = pass;
-            res.send("1");
+    var command = "select * from user where username = \'"+name+"\';";
+    // console.log(command);
+    database.query(command, function (err,result) {
+        if (err) throw err;
+        if (result[0]) {
+            // console.log("There is a user.")
+            user = true;
+            var tmp = JSON.parse(JSON.stringify(result));
+            password = tmp[0].password;
+        }
+        if (req.body.check == "register") {
+            if (!user) { // not used, register successfully
+                command = "INSERT INTO user VALUES (\'"+name+"\', \'"+pass+"\');";
+                // console.log(command);
+                database.query(command, function (err,result) {
+                    if (err) throw err;
+                    res.send("1");
+                });
+            }
+            else {
+                res.send("-1");
+            }
+        }
+        else if (pass == password) {
+            req.session.regenerate(function(){
+                req.session.user = name;
+                req.session.success = 'Authenticated successfully!';
+                res.send("2");
+            });
         }
         else {
-            res.send("-1");
+            req.session.error = 'Authentication failed.';
+            res.send("-2");
         }
-    }
-    else if (user == pass) {
-        req.session.regenerate(function(){
-            req.session.user = name;
-            req.session.success = 'Authenticated successfully!';
-            res.send("2");
-        });
-    }
-    else {
-        req.session.error = 'Authentication failed.';
-        res.send("-2");
-    }
+    });
+
 });
 
 http.listen(4000, function () {
