@@ -56,4 +56,7 @@ $(function() {
 			}
         });
     });
+
+    // set the wallpaper
+    // $.backstretch("/src/blue sky2.jpg");
 });

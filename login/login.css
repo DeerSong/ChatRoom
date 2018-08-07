@@ -1,9 +1,31 @@
+@font-face {
+	font-family: Poppins-Regular;
+	src: url('../src/fonts/poppins/Poppins-Regular.ttf');
+}
+
+@font-face {
+	font-family: Poppins-Medium;
+	src: url('../src/fonts/poppins/Poppins-Medium.ttf');
+}
+
+@font-face {
+	font-family: Poppins-Bold;
+	src: url('../src/fonts/poppins/Poppins-Bold.ttf');
+}
+
+@font-face {
+	font-family: Poppins-SemiBold;
+	src: url('../src/fonts/poppins/Poppins-SemiBold.ttf');
+}
+
 html,body {
 	height: 100%;
 }
 
 body.my-login-page {
-	background-color: #f7f9fb;
+	background:linear-gradient(90deg, #002aaa, #00a9af);
+	/*background: -webkit-linear-gradient(left, rgba(0,168,255,0.5), rgba(185,0,255,0.5));*/
+	padding-bottom:120px;
 	font-size: 14px;
 }
 
@@ -28,16 +50,33 @@ body.my-login-page {
 	box-shadow: 0 0 40px rgba(0,0,0,.05);
 }
 
-.my-login-page .card.fat {
-	padding: 10px;
+.card.fat {
+	padding: 10px 25px;
+}
+
+.card.fat {
+	border-radius: 3.5%;
+	/*box-shadow: 0 20px 20px 0px #888888;*/
 }
 
 .my-login-page .card .card-title {
 	margin-bottom: 30px;
 }
 
-.input-title,.card-title,.btn.lg-btn,.btn.rg-btn {
-	font-weight: 500;
+.card-title {
+	font-weight: 700;
+	text-align: center;
+}
+
+.input-title.input {
+	font-family: Poppins-SemiBold;
+}
+.input, .remember, .footer{
+	font-family: Poppins-Regular;
+}
+
+.input-title,.btn.lg-btn,.btn.rg-btn {
+	font-weight: 600;
 }
 
 .my-login-page .form-control {
@@ -56,6 +95,7 @@ body.my-login-page {
 	border-radius: 50px;
 	box-sizing: border-box;
 	font-weight: 500;
+	/*box-shadow: 0 10px 20px 0px rgba(20, 70, 184, 0.5);*/
 }
 
 .btn.rg-btn {
@@ -88,7 +128,8 @@ body.my-login-page {
 
 .my-login-page .footer {
 	margin: 40px 0;
-	color: #888;
+	color: #e2e2e2;
+	font-weight: 500;
 	text-align: center;
 }
 
