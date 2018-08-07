@@ -101,6 +101,24 @@ body {
     overflow: scroll;
 }
 
+/* time-Box*/
+
+#time-box {
+   display: flex;
+   justify-content: center;
+   align-content: center;
+   margin: 5px;
+}
+
+#time {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: #79C2EA;
+    /*padding: 5px 10px;*/
+    border-radius: 15px;
+    color: #fff;
+}
 
 /*聊天气泡*/
 

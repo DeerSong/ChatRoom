@@ -36,7 +36,7 @@ var socket = io();
 // Receive message from others.
 socket.on('message', function(data) {
     if (data.name !== userName.textContent) {
-        createBubbleFromOther(data);
+        createBubbleFromOther(data, true);
     }
 });
 
@@ -59,7 +59,7 @@ function sendMessage() {
             time: Date.parse(new Date())
         };
         socket.emit('message', data);
-        createBubbleOfMyself();
+        createBubbleOfMyself(data, true);
         inputBox.value = '';
     }
 };
@@ -68,7 +68,7 @@ function closePage() {
     window.location.href = "about:blank";
 }
 
-function createBubbleOfMyself(data) {
+function createBubbleOfMyself(data, showTime) {
     var myMessageBox = document.createElement('div');
     myMessageBox.id = 'my-message-box';
 
@@ -96,12 +96,16 @@ function createBubbleOfMyself(data) {
     userInformation.appendChild(userChatName);
     myMessageBox.appendChild(userInformation);
 
+    if (showTime) {
+        var timeBox = createTimeBox(data.time);
+        chatContent.appendChild(timeBox);
+    }
     chatContent.appendChild(myMessageBox);
 
     chatContent.scrollTop = chatContent.scrollHeight;
 }
 
-function createBubbleFromOther(information) {
+function createBubbleFromOther(information, showTime) {
     var otherMessageBox = document.createElement('div');
     otherMessageBox.id = 'other-message-box';
 
@@ -128,8 +132,22 @@ function createBubbleFromOther(information) {
     otherMessageContent.appendChild(text);
     otherMessageBox.appendChild(otherMessageContent);
 
+    if (showTime) {
+        var timeBox = createTimeBox(information.time);
+        chatContent.appendChild(timeBox);
+    }
     chatContent.appendChild(otherMessageBox);
 
     chatContent.scrollTop = chatContent.scrollHeight;
 }
 
+function createTimeBox(timestamp) {
+    var timeBox = document.createElement('div');
+    timeBox.id = "time-box";
+    var time = document.createElement('span');
+    time.id = 'time';
+    var date = new Date(timestamp);
+    time.innerHTML = date.toLocaleTimeString();
+    timeBox.appendChild(time);
+    return timeBox;
+}
