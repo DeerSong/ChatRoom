@@ -55,7 +55,8 @@ function sendMessage() {
         var data = {
             name: userName.textContent,
             message: inputBox.value,
-            img: userImg.src
+            img: userImg.src,
+            time: Date.parse(new Date())
         };
         socket.emit('message', data);
         createBubbleOfMyself();
@@ -67,14 +68,14 @@ function closePage() {
     window.location.href = "about:blank";
 }
 
-function createBubbleOfMyself() {
+function createBubbleOfMyself(data) {
     var myMessageBox = document.createElement('div');
     myMessageBox.id = 'my-message-box';
 
     var messageContent = document.createElement('div');
     messageContent.id = 'message-content';
     var text = document.createElement('span');
-    text.innerHTML = inputBox.value;
+    text.innerHTML = data.message;
     messageContent.appendChild(text);
     myMessageBox.appendChild(messageContent);
 
@@ -86,10 +87,11 @@ function createBubbleOfMyself() {
     userInformation.id = 'user-information';
     var userChatImg = document.createElement('img');
     userChatImg.id = 'user-chat-img';
-    userChatImg.src = userImg.src;
+    userChatImg.src = data.img;
     var userChatName = document.createElement('div');
     userChatName.id = 'user-chat-name';
-    userChatName.innerHTML = userName.textContent;
+    userChatName.innerHTML = data.name;
+
     userInformation.appendChild(userChatImg);
     userInformation.appendChild(userChatName);
     myMessageBox.appendChild(userInformation);

@@ -74,7 +74,6 @@ app.post('/check', function(req, res) {
         if (req.body.check == "register") {
             if (!user) { // not used, register successfully
                 command = "INSERT INTO user VALUES (\'"+name+"\', \'"+pass+"\');";
-                // console.log(command);
                 database.query(command, function (err,result) {
                     if (err) throw err;
                     res.send("1");
@@ -125,6 +124,10 @@ io.on('connection', function (socket) {
     // When receive a message from a client.
     socket.on('message', function (message) {
         // Broadcast the message to other clients.
+        message.time = Date.parse(new Date());
+        // console.log(message);
+        // var date = new Date(message.time);
+        // console.log(date.toLocaleTimeString());
         io.emit('message', message);
     });
 });
