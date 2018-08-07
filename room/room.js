@@ -18,6 +18,10 @@ userImg.src = '../src/' + ((time % 5)+1) + '.png'; // get userImg from url
 
 var logout= document.getElementById('log-out');
 
+var lastTime = undefined; // timestamp of Last Message
+
+var maxShowTime = 60*1000; // Max time period between two messages.
+
 // Bind event
 button.addEventListener('click', sendMessage);
 logout.addEventListener('click', closePage);
@@ -33,10 +37,27 @@ document.onkeydown = function (event) {
 // socket.io
 var socket = io();
 
+// Download chat log from server.
+socket.on('chat', function(data) {
+    for (var i in data) {
+        var showTime = (i==0) || (data[i].time-lastTime> maxShowTime);
+        if (data[i].name == userName.textContent) {
+            createBubbleOfMyself(data[i], showTime);
+        }
+        else {
+            createBubbleFromOther(data[i], showTime);
+        }
+        lastTime = data[i].time;
+    }
+
+});
+
 // Receive message from others.
 socket.on('message', function(data) {
     if (data.name !== userName.textContent) {
-        createBubbleFromOther(data, true);
+        var showTime = (data.time-lastTime > maxShowTime);
+        lastTime = data.time;
+        createBubbleFromOther(data, showTime);
     }
 });
 
@@ -59,7 +80,9 @@ function sendMessage() {
             time: Date.parse(new Date())
         };
         socket.emit('message', data);
-        createBubbleOfMyself(data, true);
+        var showTime = (data.time-lastTime > maxShowTime);
+        lastTime = data.time;
+        createBubbleOfMyself(data, showTime);
         inputBox.value = '';
     }
 };

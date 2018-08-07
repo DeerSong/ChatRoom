@@ -3,6 +3,7 @@ var app = express();
 var http = require('http').Server(app); // Set app as the callback function of the server.
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var moment = require('moment');
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
@@ -111,7 +112,17 @@ io.on('connection', function (socket) {
     onlineCount++;
     console.log('Connected user. The number is ' + onlineCount);
 
-    // Send the Count to client.
+    // Send chat log to the client.
+    var command = "SELECT * FROM `database`.chat;";
+    database.query(command, function (err,results) {
+        if (err) throw err;
+        for (var i in results) {
+            results[i].time = moment(results[i].time).valueOf();
+        }
+        io.to(socket.id).emit('chat',results);
+    });
+
+    // Send the Count to clients.
     io.emit('connected', onlineCount);
 
     // When a user disconnect.
@@ -123,11 +134,17 @@ io.on('connection', function (socket) {
 
     // When receive a message from a client.
     socket.on('message', function (message) {
-        // Broadcast the message to other clients.
+        // Upload log to database.
         message.time = Date.parse(new Date());
-        // console.log(message);
-        // var date = new Date(message.time);
-        // console.log(date.toLocaleTimeString());
+        var time = moment(message.time).format('YYYY-MM-DD HH:mm:ss');
+        var name = message.name;
+        var img = message.img;
+        var mess = message.message;
+        var command = "INSERT INTO chat VALUES (\'"+time+"\', \'"+name+"\', \'"+img+"\', \'"+mess+"\');";
+        database.query(command, function (err) {
+            if (err) throw err;
+        });
+        // Broadcast the message to other clients.
         io.emit('message', message);
     });
 });
