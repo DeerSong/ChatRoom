@@ -126,8 +126,8 @@ body.my-login-page {
 	margin: 0;
 }
 
-.my-login-page .footer {
-	margin: 40px 0;
+.footer {
+	margin: 50px 0 0;
 	color: #e2e2e2;
 	font-weight: 500;
 	text-align: center;
