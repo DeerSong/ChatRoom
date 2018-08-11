@@ -8,9 +8,10 @@ var button = document.getElementById('send-button');
 
 var onlineCount = document.getElementById('online-count');
 
-var userName = document.getElementById('user-name');
+// var userName = document.getElementById('user-name');
 var time = (Date.parse(new Date()) / 1000) % 100;
-userName.innerHTML = url[0].split('=')[1] || time; // get userName from url
+// userName.innerHTML = url[0].split('=')[1] || time; // get userName from url
+var userName = url[0].split('=')[1] || time; // get userName from url;
 
 var userImg = document.getElementById('user-img');
 userImg.src = '../src/' + ((time % 5)+1) + '.png'; // get userImg from url
@@ -41,7 +42,7 @@ var socket = io();
 socket.on('chat', function(data) {
     for (var i in data) {
         var showTime = (i==0) || (data[i].time-lastTime> maxShowTime);
-        if (data[i].name == userName.textContent) {
+        if (data[i].name == userName) {
             createBubbleOfMyself(data[i], showTime);
         }
         else {
@@ -54,7 +55,7 @@ socket.on('chat', function(data) {
 
 // Receive message from others.
 socket.on('message', function(data) {
-    if (data.name !== userName.textContent) {
+    if (data.name !== userName) {
         var showTime = (data.time-lastTime > maxShowTime);
         lastTime = data.time;
         createBubbleFromOther(data, showTime);
@@ -74,7 +75,7 @@ socket.on('disconnected', function(count) {
 function sendMessage() {
     if (inputBox.value != '') {
         var data = {
-            name: userName.textContent,
+            name: userName,
             message: inputBox.value,
             img: userImg.src,
             time: Date.parse(new Date())
