@@ -25,7 +25,7 @@ body {
 }
 
 
-/*最外层*/
+/*Outermost layer*/
 
 #chat-box {
     width: 50%;
@@ -38,7 +38,8 @@ body {
     flex-direction: column;
     background: #fff;
     box-shadow: 1px 1px 15px #666666;
-    border-radius: 3%;
+    border-radius: 1.5%;
+    overflow: hidden;
 }
 
 
@@ -64,13 +65,13 @@ body {
 /*主体*/
 
 #chat-body {
-    height: 90%;
+    height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    margin: 5px;
-    padding: 5px;
+    /*margin: 5px;*/
+    /*padding: 5px;*/
 }
 
 
@@ -82,16 +83,16 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    margin: 5px;
+    /*margin: 5px;*/
 }
 
 
 /*左侧内容*/
 
 #chat-content {
-    margin-bottom: 5px;
+    /*margin-bottom: 5px;*/
     height: 100%;
-    box-shadow: 1px 1px 15px #7B8C99;
+    /*box-shadow: 1px 1px 15px #7B8C99;*/
     overflow: scroll;
 }
 
@@ -108,10 +109,11 @@ body {
     display: flex;
     justify-content: center;
     align-content: center;
-    background-color: #79C2EA;
-    /*padding: 5px 10px;*/
-    border-radius: 15px;
-    color: #fff;
+    background-color: #aaaaaa;
+    padding: 0px 3px;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 12px;
 }
 
 /*聊天气泡*/
@@ -130,32 +132,29 @@ body {
     margin: 5px;
 }
 
-#message-content {
+#message-content, #other-message-content {
+    height: 100%;
     display: flex;
     justify-content: center;
-    align-content: center;
-    background-color: #51D15B;
-    padding: 5px 10px;
-    border-radius: 15px;
+    align-selfx: center;
+    padding: 0px 5px;
+    border-radius: 5px;
     color: #fff;
+}
+
+#message-content {
+    background-color: #51D15B;
 }
 
 #other-message-content {
-    display: flex;
-    justify-content: center;
-    align-content: center;
     background-color: #79C2EA;
-    padding: 5px 10px;
-    border-radius: 15px;
-    color: #fff;
 }
 
-#message-content span {
-    padding: 20px 0px;
-}
-
-#other-message-content span {
-    padding: 20px 0px;
+#message-content span,#other-message-content span  {
+    padding: 5px 0px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
 }
 
 #message-arrow {
@@ -189,13 +188,14 @@ body {
 }
 
 #user-chat-img {
-    width: 50px;
-    height: 50px;
+    width: 35px;
+    height: 35px;
+    border-radius: 10%;
 }
 
 #user-chat-name {
-    color: #333333;
-    font-size: 16px;
+    color: #555555;
+    font-size: 12px;
     text-align: center;
 }
 
@@ -241,8 +241,9 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 5px;
-    box-shadow: 1px 1px 15px #7B8C99;
+    background: #333333;
+    /*margin: 5px;*/
+    /*box-shadow: 1px 1px 15px #7B8C99;*/
 }
 
 
@@ -264,7 +265,7 @@ body {
 #online-count {
     font-size: 18px;
     font-weight: bold;
-    color: #79C2EA;
+    color: #eeeeee;
 }
 
 /*兼容小屏幕*/
