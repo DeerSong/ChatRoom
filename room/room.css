@@ -24,11 +24,26 @@ body {
     background: -o-linear-gradient(90deg, #002aaa, #00a9af);
 }
 
+.outsider {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+#online-count {
+    margin: 20px;
+    font-family: "sans-serif";
+    font-size: 25px;
+    font-weight: bold;
+    color: #ffffff;
+    align-self: center;
+}
 
 /*Outermost layer*/
 
 #chat-box {
-    width: 50%;
+    width: 100%;
     max-width: 720px;
     min-width: 400px;
     height: 80%;
@@ -36,9 +51,9 @@ body {
     max-height: 530px;
     display: flex;
     flex-direction: column;
-    background: #fff;
-    box-shadow: 1px 1px 15px #666666;
-    border-radius: 1.5%;
+    /*background: #fff;*/
+    /*box-shadow: 1px 1px 15px #ffffff;*/
+    border-radius: 15px;
     overflow: hidden;
 }
 
@@ -83,6 +98,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    background: #eeeeee;
     /*margin: 5px;*/
 }
 
@@ -151,12 +167,14 @@ body {
 }
 
 #message-content, #other-message-content {
+    margin-top: 5px;
     height: 100%;
     display: flex;
     justify-content: center;
-    align-self: center;
-    padding: 0px 5px;
-    border-radius: 5px;
+    /*align-self: center;*/
+    padding: 0px 7px;
+    border-radius: 7px;
+    /*border: 1px solid #dcdcdc;*/
     color: #fff;
 }
 
@@ -210,9 +228,10 @@ body {
 }
 
 #user-chat-name {
-    color: #555555;
+    color: #666666;
     font-size: 12px;
     text-align: center;
+
 }
 
 /*聊天输入框*/
@@ -223,7 +242,7 @@ body {
     align-items: center;
     background: #f6f6f6;
     /*border: 1px solid #c3c3c3;*/
-    box-shadow: 1px 1px 15px #7B8C99;
+    box-shadow: 1px 5px 15px #7B8C99;
     overflow: hidden;
 }
 /*聊天输入框输入区域*/
@@ -234,7 +253,7 @@ body {
     padding:5px;
     background: #fdfdfd;
     border: 1px solid #dcdcdc;
-    border-radius: 15px;
+    border-radius: 20px;
     outline: none;
 }
 
@@ -263,7 +282,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: #333333;
+    background: #444444;
     /*margin: 5px;*/
     /*box-shadow: 1px 1px 15px #7B8C99;*/
 }
@@ -282,12 +301,6 @@ body {
     width: 100px;
     height: 100px;
     margin: 5px;
-}
-
-#online-count {
-    font-size: 18px;
-    font-weight: bold;
-    color: #eeeeee;
 }
 
 /*兼容小屏幕*/
