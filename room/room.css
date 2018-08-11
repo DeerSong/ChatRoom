@@ -11,6 +11,25 @@ body {
     height: 100%;
 }
 
+@font-face {
+    font-family: Poppins-Regular;
+    src: url('../src/fonts/poppins/Poppins-Regular.ttf');
+}
+
+@font-face {
+    font-family: Poppins-Medium;
+    src: url('../src/fonts/poppins/Poppins-Medium.ttf');
+}
+
+@font-face {
+    font-family: Poppins-Bold;
+    src: url('../src/fonts/poppins/Poppins-Bold.ttf');
+}
+
+@font-face {
+    font-family: Poppins-SemiBold;
+    src: url('../src/fonts/poppins/Poppins-SemiBold.ttf');
+}
 
 /*背景色*/
 
@@ -26,15 +45,15 @@ body {
 
 .outsider {
     height: 100%;
-    width: 50%;
+    width: 40%;
     display: flex;
     flex-direction: column;
 }
 
 #online-count {
-    margin: 20px;
+    margin: 30px;
     font-family: "sans-serif";
-    font-size: 25px;
+    font-size: 27px;
     font-weight: bold;
     color: #ffffff;
     align-self: center;
@@ -46,9 +65,9 @@ body {
     width: 100%;
     max-width: 720px;
     min-width: 400px;
-    height: 80%;
-    min-height: 530px;
-    max-height: 530px;
+    height: 75%;
+    /*min-height: 530px;*/
+    /*max-height: 530px;*/
     display: flex;
     flex-direction: column;
     /*background: #fff;*/
@@ -56,28 +75,6 @@ body {
     border-radius: 15px;
     overflow: hidden;
 }
-
-/*logout button*/
-
-#button-box {
-    display: flex;
-    justify-content: flex-end;
-}
-
-#log-out {
-    margin-right: 15px;
-    height: 100%;
-    font-size: 14px;
-    font-weight: bold;
-    padding: 5px 15px;
-    color: #f6f6f6;
-    background: transparent;
-    outline: none;
-    border: 1px solid #f6f6f6;
-    border-radius: 15px;
-    cursor: pointer;
-}
-
 
 /*主体*/
 
@@ -91,6 +88,54 @@ body {
     /*padding: 5px;*/
 }
 
+/*top*/
+
+#chat-body-right {
+    height: 12%;
+    width: 100%;
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    background: #555555;
+    /*margin: 5px;*/
+    /*box-shadow: 1px 1px 15px #7B8C99;*/
+}
+
+/*top content*/
+
+#user-img {
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin: 10px 15px;
+    vertical-align: middle;
+    border-radius: 3px;
+}
+
+/*logout button*/
+
+#button-box {
+    /*display: flex;*/
+    /*justify-content: flex-end;*/
+    float: right;
+    margin: 15px;
+    /*vertical-align: middle;*/
+}
+
+#log-out {
+    float: right;
+    height: 100%;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 15px;
+    color: #f6f6f6;
+    background: transparent;
+    outline: none;
+    border: 1px solid #f6f6f6;
+    border-radius: 15px;
+    cursor: pointer;
+}
 
 /*主体左侧*/
 
@@ -193,6 +238,8 @@ body {
     display: table-cell;
     vertical-align: middle;
     text-align: center;
+    font-family: Poppins-Regular;
+    color: #fdfdfd;
 }
 
 #message-arrow, #other-message-arrow{
@@ -224,9 +271,9 @@ body {
 }
 
 #user-chat-img {
-    width: 35px;
-    height: 35px;
-    border-radius: 10%;
+    width: 40px;
+    height: 40px;
+    border-radius: 3px;
 }
 
 #user-chat-name {
@@ -247,6 +294,7 @@ body {
     box-shadow: 1px 5px 15px #7B8C99;
     overflow: hidden;
 }
+
 /*聊天输入框输入区域*/
 #input-box {
     width: 80%;
@@ -259,6 +307,9 @@ body {
     outline: none;
 }
 
+#chat-edit, #input-box, #user-chat-name {
+    font-family: Poppins-Regular;
+}
 /*聊天框输入按钮*/
 #send-button {
     height: 100%;
@@ -275,35 +326,6 @@ body {
 }
 
 
-/*主体右侧*/
-
-#chat-body-right {
-    height: 12%;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    background: #555555;
-    /*margin: 5px;*/
-    /*box-shadow: 1px 1px 15px #7B8C99;*/
-}
-
-
-/*右侧内容*/
-
-#user-name {
-    margin: 15px;
-    font-size: 18px;
-    font-weight: bold;
-    color: transparent;
-}
-
-#user-img {
-    width: 40px;
-    height: 40px;
-    margin-left: 5px;
-}
 
 /*兼容小屏幕*/
 @media screen and (max-width: 420px) {
