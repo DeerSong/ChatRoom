@@ -18,10 +18,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(-135deg, #51D15B, #42A855);
-    background: -moz-linear-gradient(-135deg, #51D15B, #42A855);
-    background: -webkit-linear-gradient(-135deg, #51D15B, #42A855);
-    background: -o-linear-gradient(-135deg, #51D15B, #42A855);
+    background:linear-gradient(90deg, #002aaa, #00a9af);
+    background: -moz-linear-gradient(90deg, #002aaa, #00a9af);
+    /*background: -webkit-linear-gradient(90deg, #002aaa, #00a9af);*/
+    background: -o-linear-gradient(90deg, #002aaa, #00a9af);
 }
 
 
@@ -37,16 +37,10 @@ body {
     display: flex;
     flex-direction: column;
     background: #fff;
-    box-shadow: 1px 1px 15px #333333;
+    box-shadow: 1px 1px 15px #666666;
+    border-radius: 3%;
 }
 
-
-/*头部*/
-
-#chat-header {
-    margin: 5px;
-    box-shadow: 1px 1px 15px #7B8C99;
-}
 
 #button-box {
     display: flex;

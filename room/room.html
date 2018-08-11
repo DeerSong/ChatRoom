@@ -7,14 +7,20 @@
 
 <body>
     <div id="chat-box">
-        <!--聊天框头部-->
-        <div id="chat-header">
-            <div id="button-box">
-                <input type="button" id="log-out" value="LOGOUT">
-            </div>
-        </div>
         <!--聊天框主体-->
         <div id="chat-body">
+            <!--聊天框右侧-->
+            <div id="chat-body-right">
+                <!--聊天框右侧统计人数-->
+                <div id="online-count">Online:0</div>
+                <!--聊天框右侧用户名-->
+                <div id="user-name">user-name</div>
+                <!--聊天框右侧头像-->
+                <img id="user-img" />
+                <div id="button-box">
+                    <input type="button" id="log-out" value="LOGOUT">
+                </div>
+            </div>
             <!--聊天框左侧-->
             <div id="chat-body-left">
                 <!--聊天框左侧聊天内容-->
@@ -24,15 +30,6 @@
                     <input type="text" id="input-box" placeholder="Type here." maxlength="15">
                     <input type="button" id="send-button" value="SEND">
                 </div>
-            </div>
-            <!--聊天框右侧-->
-            <div id="chat-body-right">
-                <!--聊天框右侧统计人数-->
-                <div id="online-count">Online:0</div>
-                <!--聊天框右侧用户名-->
-                <div id="user-name">user-name</div>
-                <!--聊天框右侧头像-->
-                <img id="user-img" />
             </div>
         </div>
     </div>

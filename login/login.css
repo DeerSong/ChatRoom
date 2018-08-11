@@ -24,7 +24,6 @@ html,body {
 
 body.my-login-page {
 	background:linear-gradient(90deg, #002aaa, #00a9af);
-	/*background: -webkit-linear-gradient(left, rgba(0,168,255,0.5), rgba(185,0,255,0.5));*/
 	padding-bottom:120px;
 	font-size: 14px;
 }
