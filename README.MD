@@ -3,6 +3,7 @@
 2. Choice of photos
 3. Modify the size of user photo, username
 
+
 ## Color
 1. Background of chat
     #eeeeee
