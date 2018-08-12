@@ -236,19 +236,19 @@ body::before {
     justify-content: center;
     /*align-self: center;*/
     padding: 0px 7px;
-    border-radius: 20px;
+    border-radius: 30px;
     /*border: 1px solid #dcdcdc;*/
     color: #fff;
 }
 
 #message-content {
     margin-right: 5px;
-    background-color: #51D15B;
+    background-color: #007bff;
 }
 
 #other-message-content {
     margin-left: 5px;
-    background-color: #79C2EA;
+    background-color: #9f30c1;
 }
 
 #message-content span,#other-message-content span  {
