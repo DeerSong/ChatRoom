@@ -230,47 +230,34 @@ body::before {
 
 #message-content, #other-message-content {
     margin-top: 5px;
+    min-width: 25px;
     height: 100%;
     display: flex;
     justify-content: center;
     /*align-self: center;*/
     padding: 0px 7px;
-    border-radius: 7px;
+    border-radius: 20px;
     /*border: 1px solid #dcdcdc;*/
     color: #fff;
 }
 
 #message-content {
+    margin-right: 5px;
     background-color: #51D15B;
 }
 
 #other-message-content {
+    margin-left: 5px;
     background-color: #79C2EA;
 }
 
 #message-content span,#other-message-content span  {
-    padding: 5px 0px;
+    padding: 1px 5px;
     display: table-cell;
     vertical-align: middle;
     text-align: center;
     font-family: Poppins-Regular;
     color: #fdfdfd;
-}
-
-#message-arrow, #other-message-arrow{
-    width: 0px;
-    height: 0px;
-    border-width: 5px;
-    border-style: solid;
-    align-self: center;
-}
-
-#message-arrow {
-    border-color: transparent transparent transparent #51D15B;
-}
-
-#other-message-arrow {
-    border-color: transparent #79C2EA transparent transparent;
 }
 
 #user-information {

@@ -103,10 +103,6 @@ function createBubbleOfMyself(data, showTime) {
     messageContent.appendChild(text);
     myMessageBox.appendChild(messageContent);
 
-    var arrow = document.createElement('div')
-    arrow.id = 'message-arrow';
-    myMessageBox.appendChild(arrow);
-
     var userInformation = document.createElement('div');
     userInformation.id = 'user-information';
     var userChatImg = document.createElement('img');
@@ -144,10 +140,6 @@ function createBubbleFromOther(information, showTime) {
     otherUserInformation.appendChild(userChatImg);
     otherUserInformation.appendChild(userChatName);
     otherMessageBox.appendChild(otherUserInformation);
-
-    var otherMessageArrow = document.createElement('div');
-    otherMessageArrow.id = 'other-message-arrow';
-    otherMessageBox.appendChild(otherMessageArrow);
 
     var otherMessageContent = document.createElement('div');
     otherMessageContent.id = 'other-message-content';
