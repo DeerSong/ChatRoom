@@ -40,7 +40,8 @@ database.connect();
 function restrict(req, res, next) {
     var url = decodeURI(req.url).split('?')[1].split('&');
     var username = url[0].split('=')[1];
-    if (req.session.user == username) { // check the username
+    var photo = url[1].split('=')[1];
+    if (req.session.user == username && req.session.photo == photo) { // check the username
         next();
     } else {
         req.session.error = 'Access denied!';
@@ -57,6 +58,7 @@ app.get('/room', restrict, function (req, res) {
 });
 
 app.post('/check', function(req, res) {
+    var photo = req.body.photo;
     var name = req.body.username;
     var pass = req.body.password;
     var user = false;  // Username used or not.
@@ -86,6 +88,7 @@ app.post('/check', function(req, res) {
         }
         else if (pass == password) {
             req.session.regenerate(function(){
+                req.session.photo = photo;
                 req.session.user = name;
                 req.session.success = 'Authenticated successfully!';
                 res.send("2");
