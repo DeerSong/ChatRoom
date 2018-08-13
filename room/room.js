@@ -14,8 +14,7 @@ var time = (Date.parse(new Date()) / 1000) % 100;
 var userName = url[0].split('=')[1] || time; // get userName from url;
 
 var userImg = document.getElementById('user-img');
-userImg.src = '../src/' + ((time % 5)+1) + '.png'; // get userImg from url
-// userImg.src = '../src/' + url.split('=')[1]; // get userImg from url
+userImg.src = '../src/' + url[1].split('=')[1]; // get userImg from url
 
 var logout= document.getElementById('log-out');
 
