@@ -1,3 +1,4 @@
+// load requirements
 var express = require('express');
 var app = express();
 var http = require('http').Server(app); // Set app as the callback function of the server.
@@ -5,6 +6,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var moment = require('moment');
 
+// configure server
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(express.static(__dirname));
@@ -25,7 +27,6 @@ app.use(function(req, res, next){
 });
 
 // Mysql database
-
 var mysql      = require('mysql');
 var database = mysql.createConnection({
     host     : 'localhost',
@@ -37,6 +38,7 @@ var database = mysql.createConnection({
 
 database.connect();
 
+// restrict the visit of user
 function restrict(req, res, next) {
     var url = decodeURI(req.url).split('?')[1].split('&');
     var username = url[0].split('=')[1];
@@ -49,14 +51,13 @@ function restrict(req, res, next) {
     }
 }
 
-// Main page is login page.
+// Main page is login page; then enter the room
 app.get('/', function (request, response) {
     response.sendFile('login/login.html',{root:__dirname});
 });
 app.get('/room', restrict, function (req, res) {
     res.sendFile('room/room.html',{root:__dirname});
 });
-
 app.post('/check', function(req, res) {
     var photo = req.body.photo;
     var name = req.body.username;
@@ -65,11 +66,9 @@ app.post('/check', function(req, res) {
     var password = undefined;// password from database
 
     var command = "select * from user where username = \'"+name+"\';";
-    // console.log(command);
     database.query(command, function (err,result) {
         if (err) throw err;
         if (result[0]) {
-            // console.log("There is a user.")
             user = true;
             var tmp = JSON.parse(JSON.stringify(result));
             password = tmp[0].password;
@@ -99,13 +98,13 @@ app.post('/check', function(req, res) {
             res.send("-2");
         }
     });
-
 });
 
 http.listen(4000, function () {
     console.log('Server is running.');
 });
 
+// configure the socket
 var io = require('socket.io')(http); // An instance of socket.io.
 
 var onlineCount = 0;

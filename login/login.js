@@ -38,14 +38,13 @@ $(function() {
 
 	// register and login event
     $(".rg-btn, .lg-btn").on("click", function() {
-    	console.log($(this).attr("name"));
+        // post the form
         $.post("/check",{
             "photo" : document.getElementsByClassName('p3')[0].alt,
             "username" : document.getElementById('email').value,
             "password" : document.getElementById('password').value,
 			"check"    : $(this).attr("name") // "register" or "login"
         },function(result){
-        	console.log(result);
             if (result == "1"){
                 alert("Register successfully!");
             } else if (result == "-1"){
@@ -60,6 +59,8 @@ $(function() {
         });
     });
 });
+
+// switch profile photos
 
 // image order
 var imgArray = ['1', '2', '3', '4', '5'];

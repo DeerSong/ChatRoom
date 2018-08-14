@@ -37,11 +37,7 @@ html,body {
 	z-index: -1;
 	width: 100%;
 	height: 100%;
-	/*background: -webkit-linear-gradient(left, rgba(0,123,255,0.1), rgba(255,255,255,0.1));*/
 	background: -webkit-linear-gradient(left, rgba(0,123,255,0.55), rgba(188,0,255,0.55));
-	/*background: -o-linear-gradient(left, rgba(0,168,255,0.5), rgba(185,0,255,0.5));*/
-	/*background: -moz-linear-gradient(left, rgba(0,168,255,0.5), rgba(185,0,255,0.5));*/
-	/*background: linear-gradient(left, rgba(0,168,255,0.5), rgba(185,0,255,0.5));*/
 }
 
 .my-login-page .brand {
@@ -68,11 +64,7 @@ html,body {
 .card.fat {
 	margin-top: 22%;
 	padding: 10px 25px;
-}
-
-.card.fat {
 	border-radius: 3.5%;
-	/*box-shadow: 0 20px 20px 0px #888888;*/
 }
 
 .my-login-page .card .card-title {
@@ -90,7 +82,6 @@ html,body {
 .picture-carousel {
 	position: relative;
 	display: flex;
-	/*margin: 10%;*/
 }
 
 
@@ -210,7 +201,6 @@ html,body {
 	border-radius: 50px;
 	box-sizing: border-box;
 	font-weight: 500;
-	/*box-shadow: 0 10px 20px 0px rgba(20, 70, 184, 0.5);*/
 }
 
 .btn.rg-btn {
@@ -243,8 +233,6 @@ html,body {
 
 .footer {
 	font-size: 16px;
-	/*float: bottom;*/
-	/*margin-bottom: 0px;*/
     position: absolute;
 	bottom: 12px;
 	left: 0;
