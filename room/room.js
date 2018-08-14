@@ -1,22 +1,13 @@
-var url = decodeURI(location.href).split('?')[1].split('&');// 获取url里面的内容
-
 var chatContent = document.getElementById('chat-content');
-
 var inputBox = document.getElementById('input-box');
-
 var button = document.getElementById('send-button');
-
 var onlineCount = document.getElementById('online-count');
+var logout= document.getElementById('log-out');
 
-// var userName = document.getElementById('user-name');
-var time = (Date.parse(new Date()) / 1000) % 100;
-// userName.innerHTML = url[0].split('=')[1] || time; // get userName from url
-var userName = url[0].split('=')[1] || time; // get userName from url;
-
+var url = decodeURI(location.href).split('?')[1].split('&');// split url
+var userName = url[0].split('=')[1]; // get userName from url;
 var userImg = document.getElementById('user-img');
 userImg.src = '../src/' + url[1].split('=')[1]; // get userImg from url
-
-var logout= document.getElementById('log-out');
 
 var lastTime = undefined; // timestamp of Last Message
 
@@ -49,7 +40,6 @@ socket.on('chat', function(data) {
         }
         lastTime = data[i].time;
     }
-
 });
 
 // Receive message from others.

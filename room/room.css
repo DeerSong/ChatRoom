@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     font-family: "Mircrosoft Yahei";
-    /*border: 1px solid black;*/
 }
 
 html,
@@ -31,8 +30,6 @@ body {
     src: url('../src/fonts/poppins/Poppins-SemiBold.ttf');
 }
 
-/*背景色*/
-
 body {
     background-image: url("../src/cactus.jpg");
     background-size: cover;
@@ -51,11 +48,7 @@ body::before {
     z-index: -1;
     width: 100%;
     height: 100%;
-    /*background: -webkit-linear-gradient(left, rgba(0,123,255,0.1), rgba(255,255,255,0.1));*/
     background: -webkit-linear-gradient(left, rgba(0,123,255,0.55), rgba(188,0,255,0.55));
-    /*background: -o-linear-gradient(left, rgba(0,168,255,0.5), rgba(185,0,255,0.5));*/
-    /*background: -moz-linear-gradient(left, rgba(0,168,255,0.5), rgba(185,0,255,0.5));*/
-    /*background: linear-gradient(left, rgba(0,168,255,0.5), rgba(185,0,255,0.5));*/
 }
 
 .outsider {
@@ -74,24 +67,18 @@ body::before {
     align-self: center;
 }
 
-/*Outermost layer*/
-
 #chat-box {
     width: 100%;
     max-width: 720px;
     min-width: 400px;
     height: 75%;
-    /*min-height: 530px;*/
-    /*max-height: 530px;*/
     display: flex;
     flex-direction: column;
-    /*background: #fff;*/
-    /*box-shadow: 1px 1px 15px #ffffff;*/
     border-radius: 15px;
     overflow: hidden;
 }
 
-/*主体*/
+/*Main part*/
 
 #chat-body {
     height: 100%;
@@ -103,21 +90,15 @@ body::before {
     /*padding: 5px;*/
 }
 
-/*top*/
+/*upper edge*/
 
-#chat-body-right {
+#chat-body-up {
     height: 12%;
     width: 100%;
-    /*display: flex;*/
-    /*flex-direction: row;*/
-    /*justify-content: center;*/
-    /*align-items: center;*/
     background: #555555;
-    /*margin: 5px;*/
-    /*box-shadow: 1px 1px 15px #7B8C99;*/
 }
 
-/*top content*/
+/*up content*/
 
 #user-img {
     width: 40px;
@@ -131,11 +112,8 @@ body::before {
 /*logout button*/
 
 #button-box {
-    /*display: flex;*/
-    /*justify-content: flex-end;*/
     float: right;
     margin: 15px;
-    /*vertical-align: middle;*/
 }
 
 #log-out {
@@ -152,9 +130,9 @@ body::before {
     cursor: pointer;
 }
 
-/*主体左侧*/
+/*chat content and input box*/
 
-#chat-body-left {
+#chat-body-main {
     height: 100%;
     width: 100%;
     display: flex;
@@ -165,11 +143,9 @@ body::before {
 }
 
 
-/*左侧内容*/
+/*content*/
 
 #chat-content {
-    /*margin-bottom: 5px;*/
-    /*box-shadow: 1px 1px 15px #7B8C99;*/
     height: 100%;
     background-color: #eeeeee;
     overflow: scroll;
@@ -177,21 +153,18 @@ body::before {
     overflow-y: auto;
 }
 
-#chat-content::-webkit-scrollbar {/*滚动条整体样式*/
-    width: 8px;     /*高宽分别对应横竖滚动条的尺寸*/
+/*config of scrollbar*/
+#chat-content::-webkit-scrollbar {
+    width: 8px;
     height: 1px;
 }
-#chat-content::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+
+/*little slide in scrollbar*/
+#chat-content::-webkit-scrollbar-thumb {
     border-radius: 4px;
-    /*-webkit-box-shadow: inset 0 0 5px rgba(40,40,40,0.2);*/
     background: #c3c3c3;
 }
 
-#chat-content::-webkit-scrollbar-track {/*滚动条里面轨道*/
-    /*-webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);*/
-    /*border-radius: 10px;*/
-    /*background: #EDEDED;*/
-}
 /* time-Box*/
 
 #time-box {
@@ -212,8 +185,6 @@ body::before {
     font-size: 12px;
 }
 
-/*聊天气泡*/
-
 #my-message-box {
     display: flex;
     justify-content: flex-end;
@@ -228,16 +199,15 @@ body::before {
     margin: 5px;
 }
 
+/*bubble of message*/
 #message-content, #other-message-content {
     margin-top: 5px;
     min-width: 25px;
     height: 100%;
     display: flex;
     justify-content: center;
-    /*align-self: center;*/
     padding: 0px 7px;
     border-radius: 30px;
-    /*border: 1px solid #dcdcdc;*/
     color: #fff;
 }
 
@@ -251,6 +221,7 @@ body::before {
     background-color: #9f30c1;
 }
 
+/*config of message text*/
 #message-content span,#other-message-content span  {
     padding: 1px 5px;
     display: table-cell;
@@ -285,19 +256,18 @@ body::before {
 
 }
 
-/*聊天输入框*/
+/*down side of chat box*/
 #chat-edit {
     margin-top: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: #f6f6f6;
-    /*border: 1px solid #c3c3c3;*/
     box-shadow: 1px 5px 15px #7B8C99;
     overflow: hidden;
 }
 
-/*聊天输入框输入区域*/
+/*input part of the down side*/
 #input-box {
     width: 80%;
     height: 100%;
@@ -312,7 +282,7 @@ body::before {
 #chat-edit, #input-box, #user-chat-name {
     font-family: Poppins-Regular;
 }
-/*聊天框输入按钮*/
+
 #send-button {
     height: 100%;
     margin-right: 15px;
@@ -329,8 +299,6 @@ body::before {
 
 .footer {
     font-size: 16px;
-    /*float: bottom;*/
-    /*margin-bottom: 0px;*/
     position: absolute;
     bottom: 12px;
     left: 0;
@@ -342,7 +310,6 @@ body::before {
     font-family: Poppins-Regular;
 }
 
-/*兼容小屏幕*/
 @media screen and (max-width: 420px) {
     #chat-box {
         width: 50%;
@@ -352,7 +319,7 @@ body::before {
         min-height: 530px;
         max-height: 530px;
     }
-    #chat-body-left {
+    #chat-body-main {
         height: 100%;
         width: 100%;
         display: flex;
@@ -360,7 +327,7 @@ body::before {
         justify-content: space-around;
         margin: 5px;
     }
-    #chat-body-right {
+    #chat-body-up {
         display: none;
     }
 }
