@@ -61,39 +61,31 @@ $(function() {
     });
 });
 
-//用于存储图片顺序
+// image order
 var imgArray = ['1', '2', '3', '4', '5'];
 
-//获取箭头
+// get Arrow (switch photo)
 var leftArrow = document.getElementsByClassName('left-arrow')[0];
 var rightArrow = document.getElementsByClassName('right-arrow')[0];
 
-//获取用户名
-var userName = document.getElementsByClassName('user-name')[0];
 
-//获取登录按钮
-var loginButton = document.getElementsByClassName('login-button')[0];
-
-// 获取错误信息栏
-var errorMessage = document.getElementsByClassName('error-message')[0];
-
-// 添加左箭头监听事件
+// last photo
 leftArrow.addEventListener('click', function () {
-    imgArray.unshift(imgArray[imgArray.length - 1]); //把最后的元素放在第一位
+    imgArray.unshift(imgArray[imgArray.length - 1]);
     imgArray.pop();
     carouselImg();
 
 });
 
-// 添加右箭头监听事件
+// next photo
 rightArrow.addEventListener('click', function () {
-    imgArray.push(imgArray[0]); //把第一个元素放在最后
+    imgArray.push(imgArray[0]);
     imgArray.shift();
     carouselImg();
 
 });
 
-// 切换图片
+// Modify attribute of photos when switching
 function carouselImg() {
     for (var count = 0; count < imgArray.length; count++) {
         document.getElementsByTagName('img')[count].src = 'src/' + imgArray[count] + '.png';

@@ -90,7 +90,7 @@ html,body {
 .picture-carousel {
 	position: relative;
 	display: flex;
-	margin: 10%;
+	/*margin: 10%;*/
 }
 
 
@@ -101,7 +101,7 @@ html,body {
 	position: absolute;
 	font-size: 60px;
 	height: 100%;
-	width: 30%;
+	width: 10%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -119,9 +119,9 @@ html,body {
 .before-arrow {
 	width: 0px;
 	height: 0px;
-	border-width: 30px;
+	border-width: 20px;
 	border-style: solid;
-	border-color: transparent #51D15B transparent transparent;
+	border-color: transparent #007bff transparent transparent;
 }
 
 .right-arrow {
@@ -131,14 +131,14 @@ html,body {
 .after-arrow{
 	width: 0px;
 	height: 0px;
-	border-width: 30px;
+	border-width: 20px;
 	border-style: solid;
-	border-color: transparent  transparent transparent #51D15B;
+	border-color: transparent  transparent transparent #007bff;
 }
 
 .picture-carousel img {
-	width: 80px;
-	height: 80px;
+	width: 70px;
+	height: 70px;
 	transition: all 0.2s linear;
 	-moz-transition: all 0.2s ease-out;
 	-webkit-transition: all 0.2s ease-out;
@@ -147,6 +147,13 @@ html,body {
 
 .img-setting {
 	margin: 0px -15px;
+}
+
+.first-img.img-setting {
+	margin-left: 40px;
+}
+.p1, .p2, .p3{
+	border-radius: 10%;
 }
 
 .p1 {
@@ -164,11 +171,11 @@ html,body {
 }
 
 .p2:hover {
-	transform: scale(1);
+	transform: scale(1.0);
 }
 
 .p3 {
-	transform: scale(1);
+	transform: scale(1.0);
 	z-index: 3;
 }
 
