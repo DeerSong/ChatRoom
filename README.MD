@@ -1,6 +1,7 @@
 ## To do list
 1. comments and variables
 2. restructure of code
+3. Handle firefox
 
 ## Color
 1. Background of chat
