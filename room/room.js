@@ -45,7 +45,7 @@ socket.on('chat', function(data) {
 // Receive message from others.
 socket.on('message', function(data) {
     if (data.name !== userName) {
-        var showTime = (data.time-lastTime > maxShowTime);
+        var showTime = !lastTime || (data.time-lastTime > maxShowTime);
         lastTime = data.time;
         createBubbleFromOther(data, showTime);
     }
@@ -70,7 +70,7 @@ function sendMessage() {
             time: Date.parse(new Date())
         };
         socket.emit('message', data);
-        var showTime = (data.time-lastTime > maxShowTime);
+        var showTime = !lastTime || (data.time-lastTime > maxShowTime);
         lastTime = data.time;
         createBubbleOfMyself(data, showTime);
         inputBox.value = '';

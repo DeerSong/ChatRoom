@@ -128,6 +128,7 @@ class Server {
                 var name = message.name;
                 var img = message.img;
                 var mess = message.message;
+                mess = mess.replace("'", "\\\'");
                 var command = "INSERT INTO chat VALUES (\'"+time+"\', \'"+name+"\', \'"+img+"\', \'"+mess+"\');";
                 database.query(command, function (err) {
                     if (err) throw err;
