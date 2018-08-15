@@ -1,3 +1,5 @@
+# ChatRoom
+
 ## To do list
 Finish the project.
 
@@ -12,3 +14,8 @@ Finish the project.
     #fdfdfd
 5. color of border of input-box
     #dcdcdc
+
+## Video
+Main part: https://www.youtube.com/watch?v=_CDZ16sEppQ
+
+Timestamp feature(optional): https://www.youtube.com/watch?v=um1qTndv7X0
