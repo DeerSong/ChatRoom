@@ -19,3 +19,7 @@ Finish the project.
 Main part: https://www.youtube.com/watch?v=_CDZ16sEppQ
 
 Timestamp feature(optional): https://www.youtube.com/watch?v=um1qTndv7X0
+
+## Pictures
+![Login page](https://github.com/DeerSong/ChatRoom/raw/master/src/login.png)
+![Room page](https://github.com/DeerSong/ChatRoom/raw/master/src/chatroom.png)
